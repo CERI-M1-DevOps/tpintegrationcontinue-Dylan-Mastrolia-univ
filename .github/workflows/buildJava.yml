@@ -9,8 +9,6 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
-      - name : Package
-        run : mvn -B package
       - name : Analyse
         env :
           SONAR_TOKEN : ${{ secrets.SONAR_TOKEN }}
