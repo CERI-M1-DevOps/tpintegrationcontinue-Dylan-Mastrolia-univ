@@ -9,9 +9,10 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
-      - name : Analyse
+      - name : Analyse2
         env :
           SONAR_TOKEN : ${{ secrets.SONAR_TOKEN }}
-        run : mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=$(echo "${{ github.repository }}" | sed 's-/-_-')
+        run :
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=$(echo "${{ github.repository }}" | sed 's-/-_-')
 
 
