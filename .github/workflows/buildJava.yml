@@ -9,7 +9,7 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
-      - name : Analyse2
+      - name : Analyse
         env :
           SONAR_TOKEN : ${{ secrets.SONAR_TOKEN }}
         run :
