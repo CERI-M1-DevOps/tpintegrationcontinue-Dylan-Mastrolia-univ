@@ -309,6 +309,6 @@ class ListeSimpleTest {
         listeATester.ajout(3);
         String preListe = listeATester.toString();
         listeATester.modifiePremier(5, 4);
-        assertEquals(preListe, listeATester.toString(), "La liste ne doit pas être modifiée si l'élément n'est pas présent");
+        assertEquals(preListe, listeATester.toString(), "La liste ne doit pas être modifiée si l'élément n'est pas présent.");
     }
 }
