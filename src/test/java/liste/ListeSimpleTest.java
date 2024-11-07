@@ -255,4 +255,15 @@ class ListeSimpleTest {
         System.out.println(listeATester);
         assertEquals( "ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))",listeATester.toString());
     }
+
+    @Test
+    void echangerR1equalR2() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        Noeud r1 = listeATester.tete;
+        String preList = listeATester.toString();
+        listeATester.echanger(r1, r1);
+        assertEquals(preList, listeATester.toString(), "La liste ne doit pas changer si r1 == r2");
+    }
 }
