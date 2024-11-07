@@ -266,4 +266,49 @@ class ListeSimpleTest {
         listeATester.echanger(r1, r1);
         assertEquals(preList, listeATester.toString(), "La liste ne doit pas changer si r1 == r2");
     }
+
+    @Test
+    void supprimePremierDansLeMilieuDeLaListe() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        listeATester.ajout(4);
+        assertEquals("ListeSimple(Noeud(4), Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(4, listeATester.getSize());
+        listeATester.supprimePremier(3);
+        assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(3, listeATester.getSize());
+    }
+
+    @Test
+    void supprimePremierNonPresentDansLaListe() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        String listeAvantSuppression = listeATester.toString();
+        int tailleAvantSuppression = (int) listeATester.getSize();
+        listeATester.supprimePremier(5);
+        assertEquals(listeAvantSuppression, listeATester.toString(), "La liste ne doit pas être modifiée si l'élément n'est pas présent");
+        assertEquals(tailleAvantSuppression, listeATester.getSize());
+    }
+
+    @Test
+    void modifiePremierElementPresentDansLaListe() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        listeATester.modifiePremier(2, 4);
+        assertEquals("ListeSimple(Noeud(3), Noeud(4), Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void modifiePremierElementAbsentDansLaListe() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        String preListe = listeATester.toString();
+        listeATester.modifiePremier(5, 4);
+        assertEquals(preListe, listeATester.toString(), "La liste ne doit pas être modifiée si l'élément n'est pas présent");
+    }
 }
